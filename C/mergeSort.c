@@ -12,7 +12,36 @@ void printArray(int A[], int size)
 
 void merge(int arr[], int lower, int mid, int upper)
 {
-	
+	int i, j, k, ;
+	i = lower;
+	j = mid + 1;
+	k = lower;
+	while( i <= mid && j <= upper){
+		if(arr[i] <= arr[j])
+		{
+			b[k] = arr[i];
+			i++;
+		}
+		else {
+			b[k] = arr[j];
+			j++;
+		}
+		k++;
+	}
+	if ( i > mid){
+		while (j <= upper){
+			b[k] = arr[j];
+			j++;
+			k++;
+		}
+	}
+	else {
+		while( i <= mid){
+			b[k] = arr[i];
+			i++;
+			k++;
+		}
+	}
 }
 
 void mergeSort(int arr[], int lower, int upper){

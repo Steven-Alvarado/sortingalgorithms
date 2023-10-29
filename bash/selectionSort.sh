@@ -1,28 +1,26 @@
 #!/bin/bash
-echo "enter the number"
-read n
-echo "enter number in an array"
+read -p "enter the size of the array: " n
 for((i=0;i<n;i++))
 do
-    read arr[$i]
+    read -p "enter elements in the array: " arr[$i]
 done
 #logic for selection sort
-for((i=0;i<n-1;i++))
+for (( i = 0; i < n -1; i++))
 do
-	small=${arr[$i]}
-	index=$i
-	for((j=i+1;j<n;j++))
+	min=$i
+	for((j = i + 1; j< n; j++))
 	do
-		if((arr[j]<small))
+		if(( arr[j] < arr[min]))
 		then
-		small=${arr[$j]}
-		index=$j
+			min=$j
 		fi
 	done
-
-	temp=${arr[$i]}
-	arr[$i]=${arr[$index]}
-	arr[$index]=$temp
+	if((min != i))
+	then
+		temp=${arr[min]}
+		arr[min]=${arr[i]}
+		arr[i]=$temp
+	fi
 done
 
 #printing sorted array

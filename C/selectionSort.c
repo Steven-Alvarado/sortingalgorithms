@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-void swap(int *p, int *q){
+void swap( int *p, int *q){
     int temp = *p;
     *p = *q;
     *q = temp;
 }
 
-void selectionSort(int arr[], int n){
+void selectionSort( int arr[], int n){
     int i, j, min;
-    for ( i = 0; i < n-1; i++){ /* n-1 passes*/
+    for ( i = 0; i < n -1; i++){
         min = i;
-        for ( j = i+1; j < n; j++){ 
-            if( arr[j] < arr[min])
+        for(j = i + 1; j < n; j++){
+            if(arr[j] < arr[min])
                 min = j;
-        }    
-        if (min!=i)
-        swap(&arr[min], &arr[i]);
+        }
+        if(min != i)
+            swap(&arr[min], &arr[i]);
     }
 }
 
